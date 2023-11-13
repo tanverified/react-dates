@@ -158,7 +158,7 @@ export default {
       captionPaddingBottom: 37,
       inputPadding: 0,
       displayTextPaddingVertical: undefined,
-      displayTextPaddingTop: 11,
+      displayTextPaddingTop: 0,
       displayTextPaddingBottom: 9,
       displayTextPaddingHorizontal: undefined,
       displayTextPaddingLeft: 11,

@@ -53,10 +53,20 @@ export default {
   regular: PropTypes.bool,
   keepFocusOnInput: PropTypes.bool,
   autoComplete: PropTypes.string,
+  startDateLabelText: PropTypes.string,
+  endDateLabelText: PropTypes.string,
 
   // calendar presentation and interaction related props
-  renderMonthText: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
+  renderMonthText: mutuallyExclusiveProps(
+    PropTypes.func,
+    'renderMonthText',
+    'renderMonthElement'
+  ),
+  renderMonthElement: mutuallyExclusiveProps(
+    PropTypes.func,
+    'renderMonthText',
+    'renderMonthElement'
+  ),
   renderWeekHeaderElement: PropTypes.func,
   orientation: OrientationShape,
   anchorDirection: anchorDirectionShape,

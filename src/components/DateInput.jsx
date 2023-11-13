@@ -27,6 +27,7 @@ const propTypes = forbidExtraProps({
   ...withStylesPropTypes,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  labelText: PropTypes.string,
   displayValue: PropTypes.string,
   ariaLabel: PropTypes.string,
   autoComplete: PropTypes.string,
@@ -57,6 +58,7 @@ const propTypes = forbidExtraProps({
 
 const defaultProps = {
   placeholder: 'Select Date',
+  labelText: '',
   displayValue: '',
   ariaLabel: undefined,
   autoComplete: 'off',
@@ -178,6 +180,7 @@ class DateInput extends React.PureComponent {
     const {
       id,
       placeholder,
+      labelText,
       ariaLabel,
       autoComplete,
       titleText,
@@ -205,6 +208,10 @@ class DateInput extends React.PureComponent {
     const withFang = showCaret && focused;
 
     const inputHeight = getInputHeight(reactDates, small);
+    const labelStyles = {
+      fontSize: "0.75rem",
+      padding: "0 11px",
+    }
 
     return (
       <div
@@ -218,6 +225,15 @@ class DateInput extends React.PureComponent {
           withFang && openDirection === OPEN_UP && styles.DateInput__openUp,
         )}
       >
+        {labelText && (
+          <label
+           style={labelStyles}
+            className={`DateInput ${id}_label`}
+            htmlFor={id}
+          >
+            {labelText}
+          </label>
+        )}
         <input
           {...css(
             styles.DateInput_input,
@@ -263,7 +279,7 @@ class DateInput extends React.PureComponent {
               {...css(styles.DateInput_fangShape)}
               d={openDirection === OPEN_DOWN ? FANG_PATH_TOP : FANG_PATH_BOTTOM}
             />
-            <path
+           <path
               {...css(styles.DateInput_fangStroke)}
               d={openDirection === OPEN_DOWN ? FANG_STROKE_TOP : FANG_STROKE_BOTTOM}
             />
